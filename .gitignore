@@ -30,7 +30,7 @@ node_modules/
 .env
 
 # Output folder
-.vuepress/dist
+docs/.vuepress/dist
 
 # OS Files
 .DS_Store
