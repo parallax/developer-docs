@@ -32,4 +32,4 @@ Built with:
 
 - vuepress 0.14.8
 - node 8.14.0
-- yarn versuon 1.12.3
+- yarn 1.12.3
