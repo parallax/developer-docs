@@ -203,7 +203,7 @@ img.onload = img.onerror = () => {
 
 If you want to support all next gen image formats, then it is reccomended you use [Modernizer](https://modernizr.com/download?jpeg2000-jpegxr-webp-webpalpha-setclasses).
 
-Both of these methods will do the same thing, add classes to the page which dictate feature support for each image format.
+Both of these methods will do the same thing, add classes to the page which determine feature support for each image format.
 
 You can then just write the following CSS.
 
