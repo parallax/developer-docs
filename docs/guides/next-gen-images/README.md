@@ -1,10 +1,6 @@
----
-sidebar: auto
----
-
 # Next Gen Image Formats
 
-Next gen image formats, such as WebP, JPEG 2000 and JPEG XR have superior compression and quality when compared to regular JPEGs and PNGs. The benefits of using these formats is that they will load faster, and be smaller in size.
+Next-gen image formats, such as WebP, JPEG 2000 and JPEG XR have superior compression and quality when compared to regular JPEGs and PNGs. The benefits of using these formats is that they will load faster, and be smaller in size.
 
 ## WebP
 
@@ -12,13 +8,13 @@ WebP lossless images are 26% smaller in size compared to PNGs, and up to 34% sma
 
 ### WebP Support
 
-WebP is natively supported in Google Chrome and the Opera browser, however Edge and Firefox both have announced that they are adding / have already added WebP support in their future releases. This makes WebP the most beneficial image format to impliment.
+WebP is natively supported in Google Chrome and the Opera browser, however, Edge and Firefox both have announced that they are adding/have already added WebP support in their future releases. This makes WebP the most beneficial image format to implement.
 
 [![WebP support (January 2019)](./webp-jan-2019.png)](https://caniuse.com/#feat=webp)
 
 ### WebP Generation
 
-There are plenty of generators online to create WebP images in the browser. Additionally, there is now lots of software that will let you export images in WebP format - there's even a [WebP Photoshop plugin](http://telegraphics.com.au/sw/product/WebPFormat#webpformat)! The easiest way to get WebP images however is to intergrate WebP generation into your task runner.
+There are plenty of generators online to create WebP images in the browser. Additionally, there is now lots of software that will let you export images in WebP format - there's even a [WebP Photoshop plugin](http://telegraphics.com.au/sw/product/WebPFormat#webpformat)! The easiest way to get WebP images, however, is to integrate WebP generation into your task runner.
 
 #### Gulp
 
@@ -95,7 +91,7 @@ JPEG 2000 is an image coding system that uses state-of-the-art compression techn
 
 ### JPEG 2000 Support
 
-JPEG 2000 is natively supported in Safari, and Safari on iOS. Apple have not announced any support for WebP, however they have supported WebP as a beta feature since 2016. No other browsers have announced they will be supporting JPEG 2000. JPEG 2000 support is only reccomended if your project could significantly benefit from the extra compression on Apple devices, or if the projects primary target audience is Apple product users.
+JPEG 2000 is natively supported in Safari and Safari on iOS. Apple has not announced any support for WebP, however, they have supported WebP as a beta feature since 2016. No other browsers have announced they will be supporting JPEG 2000. JPEG 2000 support is only recommended if your project could significantly benefit from the extra compression on Apple devices, or if the projects primary target audience is Apple product users.
 
 [![JPEG 2000 support (January 2019)](./jpeg-2000-jan-2019.png)](https://caniuse.com/#feat=jpeg2000)
 
@@ -147,7 +143,7 @@ gulp.task('images', () =>
 
 #### Webpack
 
-Currently there is no known way to generate JPEG 2000 images with webpack.
+Currently, there is no known way to generate JPEG 2000 images with webpack.
 
 ## JPEG XR
 
@@ -155,7 +151,7 @@ The JPEG XR specification enables greater effective use of compressed imagery wi
 
 ### JPEG XR Support
 
-JPEG XR is natively supported in Internet Explorer / Edge. While Edge have announced they will be supporting WebP in future versions, no other browsers have announced they will be supporting JPEG XR. With the support being exclusive to Internet Explorer / Edge, and Edge announcing support for WebP, using JPEG XR images is not reccomended.
+JPEG XR is natively supported in Internet Explorer / Edge. While Edge has announced they will be supporting WebP in future versions, no other browsers have announced they will be supporting JPEG XR. With the support being exclusive to Internet Explorer / Edge, and Edge announcing support for WebP, using JPEG XR images is not recommended.
 
 [![JPEG XR support (January 2019)](./jpeg-xr-jan-2019.png)](https://caniuse.com/#feat=jpegxr)
 
@@ -167,7 +163,7 @@ There are tools online for converting [JPEG](https://www.aconvert.com/image/jpg-
 
 ### Images
 
-Using next gen image formats in regular images is simple. Simply adopt the `<picture>` element, placing your different formats in `<source>` tags inside.
+Using next-gen image formats in regular images is simple. Simply adopt the `<picture>` element, placing your different formats in `<source>` tags inside.
 
 ```html
 <picture>
@@ -180,12 +176,12 @@ Using next gen image formats in regular images is simple. Simply adopt the `<pic
 ```
 
 :::warning
-Be sure to put your next gen image formats first, followed by your fallback formats, and finally an image tag. Browsers will go from top to bottom, and load the **first** image type it supports.
+Be sure to put your next-gen image formats first, followed by your fallback formats, and finally an image tag. Browsers will go from top to bottom, and load the **first** image type it supports.
 :::
 
 ### Background Images
 
-Using background images is a little trickier, due to the way CSS works, **all** the image versions will be downloaded, regardless of wether or not they're even supported. The best way to get around this is to use feature detection.
+Using background images is a little trickier, due to the way CSS works, **all** the image versions will be downloaded, regardless of whether or not they're even supported. The best way to get around this is to use feature detection.
 
 If you're just supporting WebP, you can add the following script to your project.
 
@@ -201,7 +197,7 @@ img.onload = img.onerror = () => {
 }
 ```
 
-If you want to support all next gen image formats, then it is reccomended you use [Modernizer](https://modernizr.com/download?jpeg2000-jpegxr-webp-webpalpha-setclasses).
+If you want to support all next-gen image formats, then it is recommended you use [Modernizer](https://modernizr.com/download?jpeg2000-jpegxr-webp-webpalpha-setclasses).
 
 Both of these methods will do the same thing, add classes to the page which determine feature support for each image format.
 

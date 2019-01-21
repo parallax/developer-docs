@@ -1,7 +1,7 @@
 ---
 home: true
 actionText: Get Started →
-actionLink: /hello-world/
+actionLink: /about/
 features:
   - title: ℹ️ Guides
     details: Step by step guides to using different technologies & configuring third-party applications effortlessly
