@@ -1,8 +1,12 @@
 module.exports = {
-  title: 'Parallax Developer Docs',
+  title: 'Developer Docs',
   description:
     'The go-to reference for developer guides, explainations and implimentations',
   themeConfig: {
+    nav: [
+      { text: 'Home', link: '/' },
+      { text: 'Parallax Website', link: 'https://parall.ax' }
+    ],
     sidebar: [
       {
         title: 'Quick Links',
@@ -12,6 +16,16 @@ module.exports = {
         title: 'Guides',
         collapsable: false,
         children: ['/guides/idle-until-urgent/', '/guides/next-gen-images/']
+      },
+      {
+        title: 'Best Practices',
+        collapsable: false,
+        children: ['/best-practices/accessibility/']
+      },
+      {
+        title: 'Code Style',
+        collapsable: false,
+        children: ['/code-style/javascript/']
       }
     ],
     displayAllHeaders: true,
