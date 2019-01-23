@@ -70,9 +70,11 @@ const carouselQueue = new IdleQueue()
 const openCarouselBtn = document.querySelector('.js-open-carousel')
 
 carouselQueue.pushTask(() => {
-  import(/* webpackChunkName: 'flickity' */ 'flickity').then(Flickity => {
-    let flkty = new Flickity()
-  })
+  import(/* webpackChunkName: 'flickity' */ 'flickity').then(
+    ({ default: Flickity }) => {
+      let flkty = new Flickity()
+    }
+  )
 })
 
 openCarouselBtn.addEventListener('click', e => {
