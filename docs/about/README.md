@@ -5,7 +5,7 @@ next: false
 
 # About
 
-The Parallax developer docs is an ever-evolving knowledge base for both frontend and backend developers, created for ourselves (and future selves) to encourage tip sharing, best practices and efficient workflows. They're the way we like to do things, and consist of anything and everything we think is worth noting. These are split into 3 categories; guides, best practices and code style.
+The Parallax developer docs is an ever-evolving knowledge base for both frontend and backend developers, created for ourselves (and future selves) to encourage tip sharing, best practices and efficient workflows. They're the way we like to do things, and consist of anything and everything we think is worth noting. These are split into three categories; guides, best practices and code style.
 
 ## 📚 Guides
 
