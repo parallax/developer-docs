@@ -9,10 +9,6 @@ module.exports = {
     ],
     sidebar: [
       {
-        title: 'Quick Links',
-        children: ['/', '/about/']
-      },
-      {
         title: 'Guides',
         collapsable: false,
         children: ['/guides/idle-until-urgent/', '/guides/next-gen-images/']
