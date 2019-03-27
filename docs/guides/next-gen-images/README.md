@@ -159,7 +159,7 @@ JPEG XR is natively supported in Internet Explorer / Edge. While Edge has announ
 
 There are tools online for converting [JPEG](https://www.aconvert.com/image/jpg-to-jxr/) and [PNG](https://www.aconvert.com/image/png-to-jxr/) files to JPEG XR. At this time there are no plugins for gulp or webpack to generate JPEG XR images.
 
-## Implimentation
+## Implementation
 
 ### Images
 
