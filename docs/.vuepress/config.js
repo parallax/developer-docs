@@ -11,7 +11,7 @@ module.exports = {
       {
         title: 'Guides',
         collapsable: false,
-        children: ['/guides/idle-until-urgent/', '/guides/next-gen-images/']
+        children: ['/guides/idle-until-urgent/', '/guides/next-gen-images/', '/guides/statamic/']
       },
       {
         title: 'Best Practices',
