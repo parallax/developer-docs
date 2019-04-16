@@ -76,7 +76,7 @@ All interactive widgets must be scripted to respond to standard keystrokes or ke
 For example, if using role=button the element must be able to receive focus and a user must be able to activate the action associated with the element using both the enter (on WIN OS) or return (MAC OS) and the space key.
 
 ### Fourth Rule of ARIA Use
-Do not use role="presentation" or aria-hidden="true" on a focusable element.
+Do not use `role="presentation"` or `aria-hidden="true"` on a focusable element.
 Using either of these on a focusable element will result in some users focusing on 'nothing'.
 
 ### Fifth Rule of ARIA Use
@@ -105,8 +105,9 @@ or
 
 | Attribute | Description | Useful links |
 | ------------- |-------------| -----|
-| aria-hidden | Indicates that the element and all of its descendants are not visible or perceivable to any user as implemented by the author.| [1](https://www.w3.org/WAI/PF/aria/states_and_properties#aria-hidden) |
-| aria-disabled | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable.|   [1](https://www.w3.org/WAI/PF/aria/states_and_properties#aria-disabled) |
-| aria-readonly | Indicates that the element is not editable, but is otherwise operable. | [1](https://www.w3.org/WAI/PF/aria/states_and_properties#aria-readonly) |
-| aria-label | The aria-label attribute is used to define a string that labels the current element. Use it in cases where a text label is not visible on the screen. | [1](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute) |
-| aria-labelledby | If there is visible text labeling the element, use aria-labelledby instead of aria-label, link to an id on the element being used as a label. | [1](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) |
+| `aria-hidden` | Indicates that the element and all of its descendants are not visible or perceivable to any user as implemented by the author.| [1](https://www.w3.org/WAI/PF/aria/states_and_properties#aria-hidden) |
+| `aria-disabled` | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable.|   [1](https://www.w3.org/WAI/PF/aria/states_and_properties#aria-disabled) |
+| `aria-readonly` | Indicates that the element is not editable, but is otherwise operable. | [1](https://www.w3.org/WAI/PF/aria/states_and_properties#aria-readonly) |
+| `aria-label` | The aria-label attribute is used to define a string that labels the current element. Use it in cases where a text label is not visible on the screen. | [1](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute) |
+| `aria-labelledby` | If there is visible text labeling the element, use aria-labelledby instead of aria-label, link to an id on the element being used as a label. | [1](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) |
+| `aria-expanded` | When authors use collapsible content, for example, to hide navigation menus or lists of content, the triggering link or button should indicate to screen reader users whether the collapsable content below is in the expanded or in the collapsed state. The `aria-expanded` attribute is used for this purpose. | [1](https://developer.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/) |
