@@ -14,7 +14,7 @@ module.exports = {
         children: [
           '/guides/idle-until-urgent/',
           '/guides/next-gen-images/',
-          '/guides/statamic/by-video-tutorial/',
+          '/guides/statamic/by-official-docs/',
           '/guides/statamic/by-parallax/'
         ]
       },
