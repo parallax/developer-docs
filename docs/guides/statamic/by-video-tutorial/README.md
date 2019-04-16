@@ -1,6 +1,12 @@
-# Statamic
+# Statamic (by Video Tutorials)
 
-I'm writing (Andy F) this as a bit of a running commentary to my learning/introduction to Statamic to help myself as much as anyone else, but thought I'd share. All the main Statamic docs are available here: [Statamic Docs](https://docs.statamic.com/) but this guide may give a little more insight into how it differs from Expose, which bits are comparable to what etc.
+This part of the guide will _not_ tell you about any alterations Parallax developers have made to Statamic to make it work better with our flow. It is just intended as an intro to the CMS as a comparison to Expose – how it differs, which bits are comparable etc.
+
+I'm writing (Andy F) this as a bit of a running commentary to my learning/introduction to Statamic to help myself as much as anyone else, but thought I'd share.
+
+All the main Statamic docs are available here: [Statamic Docs](https://docs.statamic.com/)
+
+If you want to learn how Parallax have adapted Statamic to suit our own workflow, please see [Statamic by Parallax](/guides/statamic/by-parallax/)
 
 ## Setup
 
@@ -25,7 +31,7 @@ That will have created a gulpfile with elixir configured
 2. `yarn`
 3. `gulp` to compile assets
 
-## Gitignore
+## .gitignore
 
 ```
 local/cache/*
@@ -53,6 +59,7 @@ site/themes/<theme>/css/*
 {{ template_content }}
 ```
 
+
 instead of
 
 ```
@@ -68,6 +75,7 @@ to set which page it uses for home
 ```
 {{ partial:nav }}
 ```
+
 
 instead of
 
