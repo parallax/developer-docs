@@ -1,4 +1,4 @@
-# Statamic (by Video Tutorials)
+# Statamic (by Official Docs)
 
 This part of the guide will _not_ tell you about any alterations Parallax developers have made to Statamic to make it work better with our flow. It is just intended as an intro to the CMS as a comparison to Expose – how it differs, which bits are comparable etc.
 
