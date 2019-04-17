@@ -15,7 +15,8 @@ module.exports = {
           '/guides/idle-until-urgent/',
           '/guides/next-gen-images/',
           '/guides/statamic/by-official-docs/',
-          '/guides/statamic/by-parallax/'
+          '/guides/statamic/by-parallax/',
+          '/guides/jamstack-sites/'
         ]
       },
       {
