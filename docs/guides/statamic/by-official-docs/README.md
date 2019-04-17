@@ -41,24 +41,80 @@ installer.php
 site/themes/<theme>/css/*
 ```
 
-## Referencing images
+## Routes
 
-### SVG
+[Read more](https://docs.statamic.com/routing)
+
+Expose handled routes via the SEO Panel (creating seo_titles and seo_urls entries in the DB), and manually via `config/routes.php` (Cake) or `routes/web.php` (Laravel)
+Statamic handles routes in 2 ways, via the natural hierarchy Pages are set up in the Control Panel, and manually in `site/settings/routes.yaml`:
+
+e.g.
 ```
-{{ theme:output src="img/something.svg" }}
+/search:
+  template: search-results
+  title: Look What I Found!
+  layout: my-layout
+  show_sidebar: false
 ```
 
-### Image
+### Wildcard routes
+
 ```
-{{ theme:img src="img/something.svg" }}"
+routes:
+  /news-articles/*: template2
 ```
+
+### Creating variables from URLs
+
+The following would allow you to use `{{ slug }}` in your template:
+```
+routes:
+  /news-articles/{slug}: template2
+```
+
+### Routing to controller logic
+
+```
+routes:
+  /complicated/stuff: ComplicatedController@stuff
+```
+
+### Redirects
+
+```
+redirect:
+  /old-location: /my-new/location
+```
+
+## Scope
+
+[Read more](https://docs.statamic.com/cascade)
+
+Variables are scoped into:
+- Global – similar to `$global_page['something']` in Expose Cake,
+- Page – similar to `$current_page['PageElement']['something']` and `$current_page['Page']['something']` in Expose Cake
+- Tags – scoped parts of a page, such as `Taxonomies` e.g. News Category tags on a News Article, or `Collections` e.g. showing related News Articles on a News Article
+
+To give you more control over the scope of your data, each URL's variables are aliased into the page scope. This means that you can access your page’s title with `page:title` and `title`, if it hasn’t be overridden in the local scope with another tag.
+
+## Content types
+
+| Type | Description | Example | Lives in |
+| ---- | ----------- | ------- | -------- |
+| Pages | Obvious | Homepage | `/site/content/pages` |
+| Collections | Things you might have an index page to collect | News articles | `/site/content/collections` |
+| Taxonomies | A system of classifying data | Categories/Tags | `/site/content/taxonomies` |
+| Globals | Global editables | company_phone_number | `/site/content/globals` |
+| Assets | Files | Images | `/site/content/assets/ |
+| Users | Admin users | Site admin, client | `/site/users` |
+
+[Please edit if not correct]: We appear (on LBA, Distill) to be using Pages, Assets & Globals.
 
 ## Managing layouts / views
 
 ```
 {{ template_content }}
 ```
-
 
 instead of
 
@@ -72,16 +128,29 @@ site/content/pages/index.md
 
 to set which page it uses for home
 
+## Partials
+
+Out of the box, Statamic uses this notation for partials:
+
 ```
 {{ partial:nav }}
 ```
 
-
-instead of
+Expose Cake uses:
 
 ```
 echo $this->element('nav')
 ```
+
+Expose Laravel uses:
+
+```
+@include('elements.some-element')
+```
+
+To make it more familiar, Parallax has [created a helper](/guides/statamic/by-parallax/#partials) for this
+
+## Page Title and Description
 
 ```
 <title>{{ meta_title or title }}</title>
@@ -90,19 +159,6 @@ echo $this->element('nav')
 ```
 <meta name="description" content="{{ meta_description or description }}">
 ```
-
-### Content types
-
-| Type | Description | Example | Lives in |
-| ---- | ----------- | ------- | -------- |
-| Pages | Obvious | Homepage | `/site/content/pages` |
-| Collections | Things you might have an index page to collect | News articles | `/site/content/collections` |
-| Taxonomies | A system of classifying data | Categories/Tags | `/site/content/taxonomies` |
-| Globals | Global editables | company_phone_number | `/site/content/globals` |
-| Assets | Files | Images | `/site/content/assets/ |
-| Users | Admin users | Site admin, client | `/site/users` |
-
-[Please edit if not correct]: We appear (on LBA, Distill) to be using Pages, Assets & Globals.
 
 ## Editables - Globals
 
@@ -128,6 +184,20 @@ inside footer.html to allow to inject things into the footer on specific pages
 {{ section:footer }}
     <h2>Something</h2>
 {{ /section:footer }}
+```
+
+## Referencing images
+
+### SVG
+
+```
+{{ theme:output src="img/something.svg" }}
+```
+
+### Image
+
+```
+{{ theme:img src="img/something.svg" }}"
 ```
 
 ## Custom Fields
