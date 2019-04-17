@@ -66,11 +66,16 @@ routes:
 
 ### Creating variables from URLs
 
-The following would allow you to use `{{ slug }}` in your template:
 ```
 routes:
   /news-articles/{slug}: template2
 ```
+
+The above would allow you to use
+::: v-pre
+`{{ slug }}`
+:::
+in your template
 
 ### Routing to controller logic
 
@@ -105,60 +110,20 @@ To give you more control over the scope of your data, each URL's variables are a
 | Collections | Things you might have an index page to collect | News articles | `/site/content/collections` |
 | Taxonomies | A system of classifying data | Categories/Tags | `/site/content/taxonomies` |
 | Globals | Global editables | company_phone_number | `/site/content/globals` |
-| Assets | Files | Images | `/site/content/assets/ |
+| Assets | Files | Images | `/site/content/assets/` |
 | Users | Admin users | Site admin, client | `/site/users` |
 
 [Please edit if not correct]: We appear (on LBA, Distill) to be using Pages, Assets & Globals.
 
-## Managing layouts / views
-
-```
-{{ template_content }}
-```
-
-instead of
-
-```
-echo $content_for_layout;
-```
-
-```
-site/content/pages/index.md
-```
-
-to set which page it uses for home
-
-## Partials
-
-Out of the box, Statamic uses this notation for partials:
-
-```
-{{ partial:nav }}
-```
-
-Expose Cake uses:
-
-```
-echo $this->element('nav')
-```
-
-Expose Laravel uses:
-
-```
-@include('elements.some-element')
-```
-
-To make it more familiar, Parallax has [created a helper](/guides/statamic/by-parallax/#partials) for this
-
 ## Page Title and Description
 
-```
-<title>{{ meta_title or title }}</title>
-```
+::: v-pre
+`<title>{{ meta_title or title }}</title>`
+:::
 
-```
-<meta name="description" content="{{ meta_description or description }}">
-```
+::: v-pre
+`<meta name="description" content="{{ meta_description or description }}">`
+:::
 
 ## Editables - Globals
 
@@ -190,15 +155,15 @@ inside footer.html to allow to inject things into the footer on specific pages
 
 ### SVG
 
-```
-{{ theme:output src="img/something.svg" }}
-```
+::: v-pre
+`{{ theme:output src="img/something.svg" }}`
+:::
 
 ### Image
 
-```
-{{ theme:img src="img/something.svg" }}"
-```
+::: v-pre
+`{{ theme:img src="img/something.svg" }}"`
+:::
 
 ## Custom Fields
 
@@ -229,3 +194,82 @@ blocks:
 etc.
 
 - Fieldsets reside in `/settings/fieldsets`
+
+## Themes
+
+[Read more](https://docs.statamic.com/theming)
+
+A theme is a collection of files and resources that dictate the look and feel for a Statamic site. Templates, CSS, JavaScript, images, and so on. These files are organized into a specific folder structure to ensure portability and compatibility.
+
+Note: Parallax has [changed this a little](/guides/statamic/by-parallax/#themes) so assets are separated from markup
+
+## Managing layouts / views
+
+::: v-pre
+`{{ template_content }}`
+:::
+
+instead of
+
+::: v-pre
+`echo $content_for_layout;`
+:::
+
+### Home template
+
+::: v-pre
+`site/content/pages/index.md`
+:::
+
+to set which page it uses for home
+
+## Partials
+
+Out of the box, Statamic uses this notation for partials:
+
+::: v-pre
+`{{ partial:nav }}`
+:::
+
+Expose Cake uses:
+
+::: v-pre
+`echo $this->element('nav')`
+:::
+
+Expose Laravel uses:
+
+::: v-pre
+`@include('elements.nav')`
+:::
+
+To make it more familiar, Parallax has [created a helper](/guides/statamic/by-parallax/#partials) for this
+
+# Tags
+
+Tags are dynamic template elements that give you the ability to fetch, filter, and display content from anywhere in your site, enhance and simplify your markup, and empower your users with dynamic features.
+
+This is best [read on the official docs](https://docs.statamic.com/tags)
+
+# Variables & Modifiers
+
+Globals:
+
+csrf_field, csrf_token, current_uri, current_url, environment, get, get_post, homepage, last_segment, locale, locale_full, locale_name, locale_url, now, old, post, response_code, segment_x, site_url, template, xml_header
+
+View [full list of Variables here](https://docs.statamic.com/variables)
+
+Modifiers give you the ability to manipulate the data of your variables on the fly. They can manipulate strings, filter arrays and lists, help you compare things, do basic math, simplify your markup, and even help you debug.
+
+View [full list of Modifiers here](https://docs.statamic.com/modifiers)
+
+# Content modelling
+
+[Video tutorial](https://www.youtube.com/watch?v=N0d_V6RyGFo&list=PLVZTm2PNrzMwIRNH0h7CKEfALR25mUCqb&index=9)
+
+Once you have some static HTML, we can make it dynamic through content modelling.
+
+In Statamic there are a few ways to approach this:
+
+1. Use the Control Panel's (web interface) fieldset builders to create the fields first, move the content/markup into it, or use the YAML file
+2. Model the content, pick the appropriate field types later

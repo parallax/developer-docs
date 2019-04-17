@@ -16,3 +16,12 @@ Parallax has created a helper for this, to make it more familiar to Expose Larav
 ```
 @include('elements.some-element')
 ```
+
+[Understand how it's done in Statamic ordinarily](/guides/statamic/by-official-docs/#partials)
+
+# Themes
+
+Need more info here
+`/public/themes/<site>/src/` compiles to `/public/themes/<site>/dist/`
+
+[Understand how it's done in Statamic ordinarily](/guides/statamic/by-official-docs/#themes)
