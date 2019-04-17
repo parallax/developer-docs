@@ -56,4 +56,14 @@ gulp
 
 ## Models
 
-## Routing
+### Example.php
+### The 5 required fields (id, title, slug, data, published)
+### The data field
+### 2019_04_17_123703_create_examples_table.php
+### searchable
+### icon - http://www.entypo.com/
+### View composers
+### Routing
+### page_url(2) -> entry_url('Page', 2)
+### entry_url('NewsArticle', 2)
+### $entry->url
