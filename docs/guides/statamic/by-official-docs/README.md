@@ -10,18 +10,7 @@ If you want to learn how Parallax have adapted Statamic to suit our own workflow
 
 ## Setup
 
-1. Unzip
-2. Rename to `<site>`
-3. cd into `<site>`
-4. valet link
-5. `<site>`.site
-6. `php please clear:site`
-7. `<site>`.site/installer
-8. Locales - change URL to `/`
-9. Create user
-10. Remove unnecessary sample files, keep & rename .env & .gitignore
-11. Commit initial
-12. `php please make:theme <theme>`, agree to make active
+*Please follow* [these instructions](/guides/statamic/by-parallax/#setup) for the Parallax-modified version of Statamic created by Brad Cornes in early 2019.
 
 That will have created a gulpfile with elixir configured
 
