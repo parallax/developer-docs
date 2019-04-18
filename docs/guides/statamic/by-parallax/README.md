@@ -202,7 +202,81 @@ https://res.cloudinary.com/parallax-agency/image/upload/w_100%2Ch_100%2Cc_fill%2
 
 ### `image_meta()`
 
-The `image_meta` function returns field data saved again
+The `image_meta` function returns field data saved against an image:
+
+```php
+$alt = image_meta($entry->image, 'alt');
+```
+
+## View Composers
+
+[View composers](https://laravel.com/docs/5.1/views#view-composers) are a great way to provide data to Blade views. To start using view composers you need to create an addon for your site, if you haven’t already. To do this create a new directory in `site/addons`, for example `site/addons/MySite`. Next create a service provider in that directory, for example `site/addons/MySiteServiceProvider.php`:
+
+```php
+<?php
+
+namespace Statamic\Addons\MySite;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+
+class MySiteServiceProvider extends ServiceProvider {
+    public function boot()
+    {
+        View::composer('news.index', Composers\NewsIndexComposer::class);
+    }
+}
+```
+
+Here we are registering a view composer for the `news.index` Blade view. Next, create a new file, `site/addons/MySite/Composers/NewsIndexComposer.php`:
+
+```php
+<?php
+
+namespace Statamic\Addons\MySite\Composers;
+
+use Illuminate\View\View;
+use Statamic\SiteHelpers\Models\NewsArticle;
+
+class NewsIndexComposer
+{
+    public function compose(View $view)
+    {
+        $view->with('posts', NewsArticle::all());
+    }
+}
+```
+
+This is where we fetch any data we need and pass it to the view. Now whenever the `news.index` view is rendered, the composer runs and provides us with the `$posts` variable:
+
+```html
+<ul>
+    @foreach ($posts as $post)
+        <li><a href="{{ $post->url }}">{{ $post->title }}</a></li>
+    @endforeach
+</ul>
+```
+
+::: tip
+You can read the current view data using the `getData` method on the view. In this example the composer provides the latest blog posts, and the amount of posts is configurable:
+
+```php
+class LatestNewsComposer
+{
+    public function compose(View $view)
+    {
+        $viewData = $view->getData();
+        $count = $viewData['count'] ?? 3;
+
+        $view->with('posts', NewsArticle::orderBy('created_at', 'desc')->take($count)->get());
+    }
+}
+```
+
+```
+@include('latest-posts', ['count' => 10])
+```
+:::
 
 ## Assets
 
@@ -229,9 +303,5 @@ bucket: "{env:AUTO_S3_BUCKET}"
 region: eu-west-1
 ```
 
-### The 5 required fields (id, title, slug, data, published)
-### The data field
-### 2019_04_17_123703_create_examples_table.php
-### View composers
-### Routing
+### Fieldsets, the database, and you
 ### $entry->url
