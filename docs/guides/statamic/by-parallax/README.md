@@ -66,7 +66,7 @@ php please make:collection NewsArticle
 
 This will create two files: a database migration (`site/database/migrations/00000000_create_news_articles_table.php`), and an Eloquent model (`site/helpers/Models/NewsArticle.php`).
 
-The migration will already contain the required columns for your new collection. After adding any additional columns that you require, run your migration:
+The migration will already contain the required columns (`id`, `title`, `slug`, `data`, `published`) for your new collection. After adding any additional columns that you require, run your migration:
 
 ```
 php please migrate
