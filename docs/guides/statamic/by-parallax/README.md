@@ -7,13 +7,14 @@ This part of the guide will tell you about any alterations Parallax developers h
 To get started clone the base Statamic repo into a new directory:
 
 ```
-git clone ssh://git@my.parall.ax:7999/ipx/statamic.git my-site
+git clone ssh://git@my.parall.ax:7999/ipx/statamic.git `my-site`
 ```
 
 Move into the new directory (`cd my-site`) and update the origin to point to your new site:
 
 ```
-git remote set-url origin ssh://git@my.parall.ax:7999/ex2/my-site.git
+git init
+git remote add origin ssh://git@my.parall.ax:7999/ex2/`my-site`.git
 ```
 
 Next, install the composer dependencies, ensuring that you are in the `statamic` subdirectory:
@@ -26,12 +27,13 @@ composer install
 Now head back to the root directory (`cd ..`) to create a `.env` file and app key:
 
 ```
+cd ../
 cp .env.example .env
 php please key:generate
 ```
 
 ::: tip
-The app key is not stored in the `.env` file. You will find it in `site/settings/system.yaml`
+The app key is not stored in the `.env` file. You will find it in `site/settings/system.yaml` – it doesn't appear to automatically update so you may have to do this manually.
 :::
 
 Open up the `.env` file and update any details relating to your local environment, such as the database connection. Next, run the database migrations:
@@ -129,7 +131,7 @@ Statamic uses the Entypo icon set. You can find the icon names by visiting the [
 ```
 ::: tip
 You can also specify relationship attributes using dot notation, and overwrite the field used for sorting the column:
-
+:::
 ```php
 'columns' => [
   // `title_with_flag_and_link` is a computed attribute that returns HTML
@@ -140,7 +142,6 @@ You can also specify relationship attributes using dot notation, and overwrite t
   ],
 ],
 ```
-:::
 
 ## Routing
 
@@ -227,3 +228,10 @@ secret: "{env:AWS_SECRET_ACCESS_KEY}"
 bucket: "{env:AUTO_S3_BUCKET}"
 region: eu-west-1
 ```
+
+### The 5 required fields (id, title, slug, data, published)
+### The data field
+### 2019_04_17_123703_create_examples_table.php
+### View composers
+### Routing
+### $entry->url
