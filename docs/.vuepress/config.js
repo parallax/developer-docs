@@ -16,7 +16,8 @@ module.exports = {
           '/guides/next-gen-images/',
           '/guides/statamic/by-official-docs/',
           '/guides/statamic/by-parallax/',
-          '/guides/jamstack-sites/'
+          '/guides/jamstack-sites/',
+          '/guides/fonts/'
         ]
       },
       {
