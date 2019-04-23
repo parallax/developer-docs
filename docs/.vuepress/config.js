@@ -28,6 +28,11 @@ module.exports = {
         title: 'Code Style',
         collapsable: false,
         children: ['/code-style/javascript/']
+      },
+      {
+        title: 'Useful libraries',
+        collapsable: false,
+        children: ['/useful-libraries/scrolling/']
       }
     ],
     displayAllHeaders: true,
