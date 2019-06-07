@@ -23,7 +23,10 @@ module.exports = {
       {
         title: 'Best Practices',
         collapsable: false,
-        children: ['/best-practices/accessibility/']
+        children: [
+          '/best-practices/accessibility/',
+          '/best-practices/accessibility/examples/'
+        ]
       },
       {
         title: 'Code Style',
