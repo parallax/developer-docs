@@ -42,6 +42,7 @@ The following are some ideal best practises that are not critical, but will vast
 - Use `aria-live` for updates and notification boxes so screen reader users will automatically be read out updates without having to focus them
 - Colour contrasts should be WCAG AAA compliant
 - Additional skip links
+- autocomplete="" allows browsers to autocomplete fields from a user's saved preferences: https://www.w3.org/TR/WCAG21/#input-purposes
 
 ## Landmark roles
 Adding ARIA landmarks to your existing site, or to a site you are developing, provides useful global navigation features and aids understanding of content structure for users. Over time the necessity of explicitly assigning landmarks will lessen as browsers build in ARIA landmark roles to newer HTML element semantics. There is widespread support for ARIA landmarks in browsers and screen readers.
