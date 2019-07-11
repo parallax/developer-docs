@@ -35,7 +35,7 @@ php please key:generate
 ::: tip
 The app key is not stored in the `.env` file. You will find it in `site/settings/system.yaml` – it doesn't appear to automatically update so you may have to do this manually. 
 
-The `CACHE_DRIVER` default in the example is set to `redis`, you can use this but if you'd prefer `apc` feel free to change it here. If you'd like to use redis and encounter a connection refused error (for example, when running "please" commands) then you will likely need to install redis. Run the following commands:
+The `CACHE_DRIVER` default in the example is set to `redis`, you can use this but if you'd prefer `apc` feel free to change it here. If you'd like to use redis and encounter a connection refused error (for example, when running "please" commands) then you will likely need to install and run a redis server. Run the following commands:
 ```
 $ brew install redis
 $ redis-server /usr/local/etc/redis.conf
