@@ -36,6 +36,14 @@ php please key:generate
 The app key is not stored in the `.env` file. You will find it in `site/settings/system.yaml` – it doesn't appear to automatically update so you may have to do this manually.
 :::
 
+::: tip
+If you encounter a connection refused error when running "please" commands then you will likely need to install redis. Run the following commands:
+
+```
+$ brew install redis
+$ redis-server /usr/local/etc/redis.conf
+```
+
 Open up the `.env` file and update any details relating to your local environment, such as the database connection. Next, run the database migrations:
 
 ```
