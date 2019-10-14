@@ -151,6 +151,16 @@ You can also specify relationship attributes using dot notation, and overwrite t
 
 ## Routing
 
+Routing is managed by Statamic using the 'Pages' part of the CMS. The tree structure you see there controls the routes. So if you have About (with a slug of /about) and create a subpage, it will be at /about/sub-page-slug.
+The exception to this is for Collections (e.g. `CaseStudy`), which usually have 'view' pages, (e.g. /case-studies/<slug-here>). This route is managed in the model (e.g. CaseStudy.php) under `$slug`
+
+## Redirects
+
+You can set up redirects using the 'SEO' tab on any page that you're editing in Statamic.
+
+Please note: this does not mean that /your-first-url will automatically redirect to /your-new-url, it just means that if you have `<a href="{{ page_url(23) }}">` then Statamic will know the user needs to go to /your-new-url and send them there.
+If you would like /your-first-url to automatically redirect, then you must set up a manual redirect. See the docs on this in the other part of this documentation [here](https://parallax-developer-docs.netlify.com/guides/statamic/by-official-docs/#redirects)
+
 ## Templating
 
 ## View Composers
