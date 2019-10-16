@@ -48,7 +48,16 @@ Open up the `.env` file and update any details relating to your local environmen
 php please migrate
 ```
 
-Statamic themes are stored in `public/themes`. You may notice that there is a base theme in there already, called `default`. Rename this folder to the name of your site, for example `my-site`.
+There are a number of things that need changing to your site name across the project, so do a find & replace in the entire project, find `change-me` and replace with the name of your site, for example `my-site`.
+
+Statamic themes are stored in `public/themes`. Navigate to that directory.
+
+You'll notice there is a directory called `change-me` there. You should change that to your site name, e.g. `my-site`, as well as the following files:
+
+`/site/addons/ChangeMe` -> `/site/addons/MySite` (change MySite to your sitename, in camel-case)
+`/site/addons/ChangeMe/ChangeMeController.php` -> `/site/addons/ChangeMe/MySiteController.php`
+`/site/addons/ChangeMe/ChangeMeListener.php` -> `/site/addons/ChangeMe/MySiteListener.php`
+`/site/addons/ChangeMe/ChangeMeServiceProvider.php` -> `/site/addons/ChangeMe/MySiteServiceProvider.php`
 
 ```
 cd public/themes/my-site
@@ -300,7 +309,7 @@ Assets are stored on Amazon S3. When a project builds on Bamboo for the first ti
 
 ### Using the bucket locally
 
-* Log in to the [Kubernetes Dashboard](https://dashboard.prlx.io/)
+* Log in to the [Kubernetes Dashboard](https://dashboard.prlx.io/) or [Kbuild Dashboard](https://dashboard.parallax.dev/)
 * Search for your project under `Namespace` on the left-hand side
 * Select a pod
 * Look for the S3 details under the `Container` section:
