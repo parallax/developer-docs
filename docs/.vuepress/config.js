@@ -17,6 +17,7 @@ module.exports = {
           '/guides/statamic/by-official-docs/',
           '/guides/statamic/by-parallax/',
           '/guides/jamstack-sites/',
+          '/guides/jamstack-sites/react/',
           '/guides/fonts/'
         ]
       },
