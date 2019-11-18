@@ -46,7 +46,7 @@ If this doesn't run, you should make sure you're on a recent version of node.
 
 At this point I usually cleanse the codebase by removing things that I don't want / isn't needed.
 
-***Delete:***
+**Delete:**
 - `/src/App.css`
 - `/src/App.test.js`
 - `/src/logo.svg`
@@ -58,7 +58,7 @@ At this point I usually cleanse the codebase by removing things that I don't wan
 
 The last step here is to simply wipe the `/src/App.js` file with some starter boilerplate:
 
-```
+```jsx
 import React from "react"
 
 const App = () => (
@@ -71,9 +71,11 @@ export default App
 
 At this point your app should be running on `http://localhost:3000/`, simply displaying "App" in plain text.
 
-## Components
+## Components: Basics
 
 Most of your app code will be written in component files. They can be any size, from as small as a Button to as large as a full page layout, and you include these in a big tree to create an app.
+
+### Folder Structure
 
 How these are stored in your project is up to you, but I usually make a folder for each category that I think makes sense:
 
@@ -95,7 +97,7 @@ Creating a component is as simple as adding a new `.js` file to your components 
 
 First lets create `/src/components/MyButton.js`:
 
-```
+```jsx
 import React from "react"
 
 const MyButton = () => {
@@ -108,31 +110,168 @@ export default Button
 
 ```
 This simply returns a `button` element that does nothing and has some default text inside. To make this show up in our app, we need to use import the component inside `/src/App.js`:
-```
+```jsx
 import React from "react"
 import MyButton from "./components/MyButton"
 
 const App = () => (
-  <div>
+  <main>
     App
     <MyButton />
-  </div>
+  </main>
 )
 
 export default App
 
 ```
 
-WIP
+::: warning Single Root Element Rule
 
-<!-- [**Jigsaw**](https://jigsaw.tighten.co/docs/installation/) is a framework for rapidly building static sites using Laravel, the
-same modern tooling that powers our web applications.
+React (and Vue for that matter) don't know how to deal with multiple loose JSX elements directly inside of your return value.
 
-:::tip Notes
+```jsx
+import React from "react"
 
-- Gatsby and Gridsome essentially do the same thing, just depends on whether you’d prefer to use Vue or React. The same is true when comparing Next / Nuxt.
-- If the framework has a CLI use that instead of a repo. Jigsaw has an init command but nothing setup by default for our tailwind/postcss config.
-- Most CLI tools have an option for using Tailwind.
+const Component = () => (
+  <div>1</div>
+  <div>2</div>
+)
 
+// Parsing error: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>?
+```
+
+To solve this, you can either wrap your elements in another JSX element, or you can wrap them in a Fragment.
+
+**Element Approach:** (renders as returned)
+
+```jsx
+import React from "react"
+
+const Component = () => (
+  <div>
+    <div>1</div>
+    <div>2</div>
+  </div>
+)
+```
+
+**Fragment Approach:** (renders as two loose divs)
+
+```jsx
+import React, { Fragment } from "react"
+
+const Component = () => (
+  <Fragment>
+    <div>1</div>
+    <div>2</div>
+  </Fragment>
+)
+```
+
+**Shorthand Fragment Approach:** (renders as two loose divs)
+
+```jsx
+import React from "react"
+
+const Component = () => (
+  <>
+    <div>1</div>
+    <div>2</div>
+  </>
+)
+```
+
+Be wary of this rule when outputting multiple items with the JS `map` method.
 :::
- -->
+
+### Displaying Values
+
+To output a variable's value, simply wrap it in braces like so:
+
+```jsx
+const title = "Main Heading"
+...
+<h1>title</h1> // outputs "title" plain text
+<h1>{ title }</h1> // outputs "Main Heading" value
+```
+
+You can also conditionally output data in your app, for example:
+
+```jsx
+<header>
+  <h1>Hello World</h1>
+  { hasSubtitle ? <h2>{ subtitle }</h2> : null }
+</header>
+```
+
+## Components: Props
+
+Properties (props) are what you pass into your components - they are essentialy function arguments. These can be anything, but usually they will end up being Strings, Arrays, Objects or other Functions.
+
+**Example:** we can pass a label prop into our MyButton component by doing the following:
+
+`/src/App.js`:
+
+```jsx
+const App = () => (
+  <div>
+    <MyButton label="Press me" />
+  </div>
+)
+
+```
+`/src/components/MyButton.js`
+```jsx
+const MyButton = props => {
+  return (
+    <button>{ props.label }</button>
+  )
+}
+
+```
+
+Any number of properties can be passed into a component:
+
+`/src/App.js`:
+
+```jsx
+const listItems = [ "Apple", "Raddish", "Ostrich" ]
+
+const App = () => (
+  <section>
+    <SomeList
+      heading="My Favourite Snacks"
+      items={ listItems }
+    />
+  </section>
+)
+```
+`/src/components/SomeList`
+```jsx
+const SomeList = props => (
+  <>
+    <h2>{ props.heading }</h2>
+    <ul>
+    {
+      props.items.map(item => <li>{ item }</li>)
+    }
+    </ul>
+  </>
+)
+```
+
+::: tip Tip: Destructure and set defaults on props
+
+We can avoid having to do `props.x`, `props.y`, `props.z` everywhere in this component by extracting values as they come in:
+
+```jsx
+const MyButton = ({ label }) => <button>{ label }</button>
+```
+A step ahead of this would be to supply defaults, in case there is an instance where this component isn't passed a value:
+
+```jsx
+const MyButton = ({ label = "Click here" }) => <button>{ label }</button>
+```
+This last example will contain "Click here" text, but if a `label` prop is passed in, it will overwrite it.
+:::
+
