@@ -17,6 +17,8 @@ While you can probably get around React if you know basic JS, it's probably a go
 - The spread operator and how it's used to manipulate arrays / objects
 - Computed property names are also very handy
 
+You should also be aware of what [JSX](https://reactjs.org/docs/introducing-jsx.html) is. It is basically JS that looks like HTML but it has some behavioural / attribute differences.
+
 
 ## Installation / Setup
 
@@ -69,7 +71,57 @@ export default App
 
 At this point your app should be running on `http://localhost:3000/`, simply displaying "App" in plain text.
 
-# Components
+## Components
+
+Most of your app code will be written in component files. They can be any size, from as small as a Button to as large as a full page layout, and you include these in a big tree to create an app.
+
+How these are stored in your project is up to you, but I usually make a folder for each category that I think makes sense:
+
+- `/src/components/` for most loose page elements
+- `/src/components/forms/` if you have a bunch of related components (eg. form elements)
+- `/src/layouts/` for broad level page structure / layout
+- `/src/pages/` for each page of the app
+
+In a basic CRA environment these folders mean nothing, but in frameworks such as [Next](https://nextjs.org/) they have built in routing and other magical things based on this structure.
+
+### Creating a Component
+
+Creating a component is as simple as adding a new `.js` file to your components folder, then following these steps:
+
+1. Import React so it knows that this is a component file
+2. Create a pointer function with an UpperCamelCase name
+3. Return some JSX
+4. Export the component so it's available for import in other files.
+
+First lets create `/src/components/MyButton.js`:
+
+```
+import React from "react"
+
+const MyButton = () => {
+  return (
+    <button>Click me</button>
+  )
+}
+
+export default Button
+
+```
+This simply returns a `button` element that does nothing and has some default text inside. To make this show up in our app, we need to use import the component inside `/src/App.js`:
+```
+import React from "react"
+import MyButton from "./components/MyButton"
+
+const App = () => (
+  <div>
+    App
+    <MyButton />
+  </div>
+)
+
+export default App
+
+```
 
 WIP
 
