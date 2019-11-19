@@ -208,11 +208,11 @@ You can also conditionally output data in your app, for example:
 
 ## Props
 
-Properties (props) are what you pass into your components - they are essentialy function arguments. These can be anything, but usually they will end up being Strings, Arrays, Objects or other Functions.
+Properties (props) are what you pass into your components - they are essentialy function arguments. These can be anything, but usually they will end up being Strings, Arrays, Objects or other Functions. These values can be passed both up and down your component tree.
 
-**Example:** we can pass a label prop into our MyButton component by doing the following:
+### Passing Props Down
 
-`/src/App.js`:
+To pass a label prop into our MyButton component, we do the following:
 
 ```jsx
 const App = () => (
@@ -221,25 +221,17 @@ const App = () => (
   </div>
 )
 
-```
-`/src/components/MyButton.js`
-```jsx
-const MyButton = props => {
-  return (
-    <button>{ props.label }</button>
-  )
-}
+const MyButton = props => (
+  <button>{ props.label }</button>
+)
 
 ```
 
 Any number of properties can be passed into a component:
 
-`/src/App.js`:
-
 ```jsx
-const listItems = [ "Apple", "Raddish", "Ostrich" ]
-
 const App = () => (
+  const listItems = [ "Apple", "Raddish", "Ostrich" ]
   <section>
     <SomeList
       heading="My Favourite Snacks"
@@ -247,14 +239,16 @@ const App = () => (
     />
   </section>
 )
-```
-`/src/components/SomeList`
-```jsx
+
 const SomeList = props => (
   <>
     <h2>{ props.heading }</h2>
     <ul>
-      { props.items.map(item => <li key={ item }>{ item }</li>) }
+    {
+      props.items.map((item, i) =>
+        <li key={ `snack-${ item }-${ i }` }>{ item }</li>
+      )
+    }
     </ul>
   </>
 )
@@ -279,7 +273,7 @@ This last example will contain "Click here" text, but if a `label` prop is passe
 ::: warning Keys when mapping
   When you map through items in React, you need to add a key prop which has a unique value. This isn't accessible like props usually are, but it's needed to help React keep track of things.
 
-  In a pinch you can use an array index for this, but some form of ID or unique string is much preferable.
+  In a pinch you can use an array index for this (`key={ i }`), but some form of ID or unique string is much preferable (`key={ 'item-${ id }-${ i }' }`).
 :::
 
 ## Events
@@ -290,7 +284,7 @@ Interacting with your components is simple in React, just use the appropriate ev
 
 ```jsx
 const Button = () => {
-  const handleClick = e => alert(`clicked ${ e.current.target }!`)
+  const handleClick = e => alert(`Clicked ${ e.target.innerText }!`)
   return (
     <button onClick={ handleClick }>Mr. Buttons</button>
   )
@@ -300,7 +294,7 @@ We can optionally perform this inside of an anonymous function - this approach i
 
 ```jsx
 const Button = () => (
-  <button onClick={ e => alert(`clicked ${ e.current.target }!`) }>
+  <button onClick={ e => alert(`Clicked ${ e.target.innerText }!`) }>
     Mr. Buttons
   </button>
 )
