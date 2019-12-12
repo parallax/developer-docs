@@ -38,7 +38,7 @@ module.exports = {
       {
         title: 'Useful libraries',
         collapsable: false,
-        children: ['/useful-libraries/scrolling/']
+        children: ['/useful-libraries/scrolling/','/useful-libraries/react/']
       }
     ],
     displayAllHeaders: true,
