@@ -7,8 +7,9 @@
 ## Hooks
 
 * [react-use-measure](https://github.com/react-spring/react-use-measure)
-* [react-adaptive-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks)
+* [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
 * [react-use](https://github.com/streamich/react-use)
+* [react-adaptive-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks)
 * [use-persisted-state](https://github.com/donavon/use-persisted-state)
 
 ## Components
