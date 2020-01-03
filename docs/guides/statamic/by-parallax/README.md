@@ -2,6 +2,8 @@
 
 This part of the guide will tell you about any alterations Parallax developers have made to Statamic to make it work better with our flow. You should first read [Statamic by Official Docs](/guides/statamic/by-official-docs/) and ideally before that view the [Statamic Docs](https://docs.statamic.com/), learning either by text or video.
 
+We'll refer to the official version as 'Statamic Official' and the Parallax version as 'Statamic Parallax' throughout this guide.
+
 ## Setup
 
 To get started clone the base Statamic repo into a new directory:
@@ -56,13 +58,64 @@ npm install
 gulp
 ```
 
+## Fieldsets, the database, and you
+
+To manage data in Statamic, for News Articles or Events (or anything!) for example, you will need to create a 'Collection'. A Collection is the group of things you need for each set of data, consisting of:
+
+- a Laravel migration - this defines the SQL that will create the structure of the database tables. The fields in the migration will usually match up with the fields defined in the fieldset.
+- a Laravel model - this defines which fieldset a set of data is linked to, as well as the Laravel view to pass the data to, and some Statamic options.
+
+See the 'Models / Collections' section below for more info on creating collections.
+
+You will also need:
+
+- a Statamic fieldset - to define the structure of the form in the Statamic backend that the site admin will be inputting content through
+- a database table - this will automatically be created when you run the migration on the command line
+
+### Fieldsets
+
+In both the regular Statamic install and the Parallax Statamic, the schema/data structure for a group of fields (such as the fields that make up an element, or an entire page) are stored in 'Fieldsets'. These are .yaml files that define multiple fields, and a set of attributes relating to each of those fields, such as its name (e.g. 'Main title'), its type (e.g. 'text'), its appearance within the Statamic backend etc.
+
+You'll find fieldsets in the `/site/settings/fieldsets` directory. They look something a bit like this:
+
+```yaml
+sections:
+  main:
+    display: Main
+    fields:
+      title:
+        display: Title
+        type: text
+        localizable: true
+        width: 50
+        validate: required
+      slug:
+        display: Slug
+        type: text
+        width: 50
+        validate: required
+taxonomies: false
+hide: true
+title: 'Page - Default'
+```
+
+Obviously these would be quite cumbersome to type out, especially as .yaml files are fussy about indentation. The best way to work with fieldsets is to generate them using the Statamic backend, then make small incremental edits to the generated .yaml file in your code editor. Larger edits should still happen in the Statamic backend though, as you'll save time.
+
+In the Statamic backend, look at the bottom of the sidebar, under 'Configure' you'll see 'Fieldsets'. Read more about them [here](https://docs.statamic.com/fieldsets)
+
+### The database
+
+In Statamic Official, data is stored in yaml files in a similar way to the how the schema/fieldsets are.
+
+In Statamic Parallax, we use a database adaptor to make things a bit more familiar. Rather than creating your database tables & table schemas with a tool like Sequel Pro, we want to use [Migrations](https://laravel.com/docs/5.8/migrations).
+
 ## Models / Collections
 
 Vanilla Statamic has a concept of [Collections](https://docs.statamic.com/collections):
 
 > Collections can be anything. Blog posts, news articles, knock knock jokes, you name it. Other content management systems might call them “channels”, “structures”, or “post types”.
 
-When using Parallax Statamic, “collections” exist as [Eloquent](https://laravel.com/docs/5.1/eloquent) models.
+When using Statamic Parallax, “collections” exist as [Eloquent](https://laravel.com/docs/5.1/eloquent) models.
 
 ### Creating new collections
 
@@ -326,6 +379,3 @@ secret: "{env:AWS_SECRET_ACCESS_KEY}"
 bucket: "{env:AUTO_S3_BUCKET}"
 region: eu-west-1
 ```
-
-### Fieldsets, the database, and you
-### $entry->url
