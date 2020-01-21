@@ -12,6 +12,8 @@
 * [react-adaptive-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks)
 * [use-persisted-state](https://github.com/donavon/use-persisted-state)
 * [use-query-string](https://github.com/trevorblades/use-query-string)
+* [promise-hook](https://github.com/aiven715/promise-hook)
+* [react-hotkeys-hook](https://github.com/JohannesKlauss/react-hotkeys-hook)
 
 ## Components
 
