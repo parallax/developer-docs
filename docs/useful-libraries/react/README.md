@@ -11,6 +11,7 @@
 * [react-use](https://github.com/streamich/react-use)
 * [react-adaptive-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks)
 * [use-persisted-state](https://github.com/donavon/use-persisted-state)
+* [use-query-string](https://github.com/trevorblades/use-query-string)
 
 ## Components
 
