@@ -10,7 +10,6 @@ module.exports = {
     sidebar: [
       {
         title: 'Guides',
-        collapsable: false,
         children: [
           '/guides/bash/',
           '/guides/idle-until-urgent/',
@@ -24,21 +23,15 @@ module.exports = {
       },
       {
         title: 'Best Practices',
-        collapsable: false,
-        children: [
-          '/best-practices/accessibility/',
-          '/best-practices/accessibility/examples/'
-        ]
+        children: ['/best-practices/accessibility/', '/best-practices/react/']
       },
       {
         title: 'Code Style',
-        collapsable: false,
         children: ['/code-style/javascript/']
       },
       {
         title: 'Useful libraries',
-        collapsable: false,
-        children: ['/useful-libraries/scrolling/','/useful-libraries/react/']
+        children: ['/useful-libraries/scrolling/', '/useful-libraries/react/']
       }
     ],
     displayAllHeaders: true,
