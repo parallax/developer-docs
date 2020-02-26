@@ -32,6 +32,10 @@ module.exports = {
       {
         title: 'Useful libraries',
         children: ['/useful-libraries/scrolling/', '/useful-libraries/react/']
+      },
+      {
+        title: 'Useful Tools',
+        children: ['/useful-tools/snappy/']
       }
     ],
     displayAllHeaders: true,
