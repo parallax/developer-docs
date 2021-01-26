@@ -2,25 +2,25 @@
 
 ## General
 
-* [Reach UI](https://reacttraining.com/reach-ui/)
+* [Reach UI](https://reacttraining.com/reach-ui/) - Collection of accessible but unstyled React componenst (menus, dialog boxes, alerts, tooltips, etc)
 
 ## Hooks
 
-* [react-use-measure](https://github.com/react-spring/react-use-measure)
-* [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
-* [react-use](https://github.com/streamich/react-use)
-* [react-adaptive-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks)
-* [use-persisted-state](https://github.com/donavon/use-persisted-state)
-* [use-query-string](https://github.com/trevorblades/use-query-string)
-* [promise-hook](https://github.com/aiven715/promise-hook)
-* [react-hotkeys-hook](https://github.com/JohannesKlauss/react-hotkeys-hook)
+* [react-use-measure](https://github.com/react-spring/react-use-measure) - Reactive boundry measurments
+* [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer) - Check if element is in the viewport
+* [react-use](https://github.com/streamich/react-use) - Large collection of essential hooks (useScroll, useVideo, useInterval, useRaf, useFullscreen, useCookie)
+* [react-adaptive-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks) - Hooks and utilities for adaptive loading (useNetworkStatus, useSave, useHardwareConcurrency, useMemoryStatus, useNetworkStatus)
+* [use-persisted-state](https://github.com/donavon/use-persisted-state) - Multi-instance, multi-tab/browser shared and persistent state
+* [use-query-string](https://github.com/trevorblades/use-query-string) - Serialize state into the URL query string
+* [promise-hook](https://github.com/aiven715/promise-hook) - Simple data fetching
+* [react-hotkeys-hook](https://github.com/JohannesKlauss/react-hotkeys-hook) - Simple keyboard shortcut support
 
 ## Components
 
-* [downshift](https://github.com/downshift-js/downshift)
-* [react-focus-lock](https://github.com/theKashey/react-focus-lock)
-* [formik](https://github.com/jaredpalmer/formik)
-* [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
+* [downshift](https://github.com/downshift-js/downshift) - Autocomplete/dropdown/select/combobox components
+* [react-focus-lock](https://github.com/theKashey/react-focus-lock) - Focus lock, prevents users focusing (tabbing) outside of specific areas (useful for burger navs / modals)
+* [formik](https://github.com/jaredpalmer/formik) - Simple form component
+* [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - Drag and drop lists
 
 ## Animation
 
